@@ -1,0 +1,81 @@
+[
+    {
+        "id": "155c727e74cb3361",
+        "type": "tab",
+        "label": "MongoDB Connection ",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9f5cb139930a5a4e",
+        "type": "inject",
+        "z": "155c727e74cb3361",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "42a721f0aba9bbf8"
+            ]
+        ]
+    },
+    {
+        "id": "42a721f0aba9bbf8",
+        "type": "mongodb-node",
+        "z": "155c727e74cb3361",
+        "mongodb": "92ae78283fc2fda1",
+        "name": "MongoDB",
+        "collection": "node-redDB",
+        "operation": "find",
+        "upsert": false,
+        "multi": false,
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "08e95244e0cbd9f8"
+            ]
+        ]
+    },
+    {
+        "id": "08e95244e0cbd9f8",
+        "type": "debug",
+        "z": "155c727e74cb3361",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "92ae78283fc2fda1",
+        "type": "mongodb-config",
+        "hostname": "127.0.0.1",
+        "port": "27017",
+        "db": "TestDB",
+        "name": "MongoDB"
+    }
+]
